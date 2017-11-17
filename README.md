@@ -107,10 +107,10 @@ lin-analyze myfile.txt flash4 400
 This command line parses myfile.txt that has a file type of flash4 and a bin length of 320 micron
 #### Output
 The tool outputs a flux and fluence contrast plot 
-
+<p float="left">
 <img src="examples/Flux1.png" width="500"/> 
 <img src="examples/Fluence.png" width="500"/> 
-
+</p>
 
 # Updating/Uninstalling
 > Write up how to update a current installation (and how to update dependencies as well), how to uninstall it
