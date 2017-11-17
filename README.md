@@ -87,12 +87,9 @@ This command line script ensures that Gauss-Seidel Tolerance is 1.0E-05 and the 
 #### Output
 
 The tool outputs Log Reconstructed Perpendicular Magnetic Field Projection
-<p align="left">
-<img src="examples/B_Reconstructed.png" width="400">
-</p>
-<p align="right">
-<img src="examples/B_True.png" width="400">
-</p>
+<img src="examples/B_Reconstructed.png" width="400"/>
+<img src="examples/B_True.png" width="400"/>
+
 
 
 ### Tool 2: "lin-analyze"
