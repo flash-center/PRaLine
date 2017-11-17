@@ -87,8 +87,11 @@ This command line script ensures that Gauss-Seidel Tolerance is 1.0E-05 and the 
 #### Output
 
 The tool outputs Log Reconstructed Perpendicular Magnetic Field Projection
-<p align="center">
+<p align="left">
 <img src="examples/B_Reconstructed.png" width="500">
+</p>
+<p align="right">
+<img src="examples/B_True.png" width="500">
 </p>
 
 
@@ -108,10 +111,10 @@ This command line parses myfile.txt that has a file type of flash4 and a bin len
 #### Output
 
 The tool outputs a flux and fluence contrast plot 
-<p align="center">
+<p align="left">
 <img src="examples/Flux1.png" width="500"> 
 </p>
-<p align="center">
+<p align="right">
 <img src="examples/Fluence.png" width="500"> 
 </p>
 
