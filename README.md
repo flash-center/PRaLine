@@ -108,8 +108,8 @@ This command line parses myfile.txt that has a file type of flash4 and a bin len
 #### Output
 The tool outputs a flux and fluence contrast plot 
 <p float="left">
-<img src="examples/Flux1.png" width="400" height="400"/> 
-<img src="examples/Fluence.png" width="400" height="400"/> 
+<img src="examples/Flux1.png" width="400" height="300"/> 
+<img src="examples/Fluence.png" width="400" height="300"/> 
 </p>
 
 # Updating/Uninstalling
