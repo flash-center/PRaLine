@@ -147,10 +147,10 @@ def B_recon(flux, flux_ref, Bperp, s2r_cm, s2d_cm, bin_um, Ep_MeV, tol_iter, max
             BperpR[i, j, 0] = Bconst * deltaXR[i, j, 1]
             BperpR[i, j, 1] = -Bconst * deltaXR[i, j, 0]
             # True Data
-            x = ru.idx2vec((i, j))
-            x = x + deltaXR[i, j]
-            idx = ru.vec2idx(x)
-            BperpS[i, j, :] = Bperp[idx[0] % num_bins, idx[1] % num_bins, :]
+            # x = ru.idx2vec((i, j))
+            # x = x + deltaXR[i, j]
+            # idx = ru.vec2idx(x)
+            # BperpS[i, j, :] = Bperp[idx[0] % num_bins, idx[1] % num_bins, :]
 
     print "#L2 norm of residual = %12.5E ;  Number of Gauss-Seidel iterations = %d\n" % GS
     return BperpR, BperpS

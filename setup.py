@@ -1,10 +1,10 @@
 from setuptools import setup
 
-setup(name='lin-prad',
-      version='0.1.0',
-      packages=['lin_prad'],
+setup(name='praline',
+      version='0.0.5',
+      packages=['praline'],
       entry_points={
-          'console_scripts': ['lin-reconstruct = lin_prad.reconstruct:prad_wrap',
-                              'lin-analyze = lin_prad.analysis:prad_wrap'],
+          'console_scripts': ['lin-reconstruct = praline.reconstruct:prad_wrap',
+                              'lin-analyze = praline.analysis:prad_wrap'],
                 },
       )

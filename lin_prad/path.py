@@ -20,8 +20,10 @@ def mag_parse(fname, bin_um):
 
     Parameters
     ----------
-    fn(string): full filename (including path) of the proton detector file; e.g. "/home/myouts/blob.out", where "blob.out" is the basename
-    bin_um(float): size of the square edge lengths with which to divide the detector for binning
+    fn(string): full filename (including path) of the proton detector file;
+                e.g. "/home/myouts/blob.out", where "blob.out" is the basename
+    bin_um(float): size of the square edge lengths with which to divide the
+                detector for binning
 
     Returns
     -------
@@ -92,48 +94,3 @@ def mag_parse(fname, bin_um):
                 raise ValueError
 
     return Bperp, J, avg_fluence, im_fluence
-
-
-def parse_im(fname):
-    # Data file
-    fd = open(fname, 'r')
-
-    line = fd.readline()
-    while match('#', line):
-
-        if match('# s2r_cm', line):
-            s2r_cm = float(line.split()[2])
-
-        if match('# s2d_cm', line):
-            s2d_cm = float(line.split()[2])
-
-        if match('# Ep_MeV', line):
-            Ep_MeV = float(line.split()[2])
-
-        if match('# bin_um', line):
-            bin_um = float(line.split()[2])
-
-        if match('# x-mask', line):
-            x = float(line.split()[2])
-
-        if match('# y-mask', line):
-            y = float(line.split()[2])
-
-        line = fd.readline()
-
-    data = pd.read_csv(fname, header=None, comment='#',
-                       delimiter=",").as_matrix()
-
-    index = int(data.shape[1] / 3)
-    num_bins = int(math.sqrt(index))
-
-    flux2D = data[:, :index]
-    flux2D.shape = (num_bins, num_bins)
-
-    flux2D_ref = data[:, index:(index * 2)]
-    flux2D_ref.shape = (num_bins, num_bins)
-
-    mask = data[:, (index * 2):]
-    mask.shape = (num_bins, num_bins)
-
-    return flux2D, flux2D_ref, mask, s2r_cm, s2d_cm, Ep_MeV, bin_um

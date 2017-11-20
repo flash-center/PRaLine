@@ -29,18 +29,15 @@ def get_input_data():
                             action="store_true")
         parser.add_argument("input_file", type=str,
                             help="The filename including the path")
-        parser.add_argument("type", type=str,
-                            help="Input filetype", choices=avail_input_formats)
-        parser.add_argument("bin_um", type=float,
-                            help="Length of the side of a bin, in microns")
-        parser.add_argument("--x1", default=0, type=int,
-                            help="the first percentage of the x interval e.g 10 percent DEFAULT:0")
-        parser.add_argument("--y1", default=0, type=int,
-                            help="the first percentage of the y interval e.g 10 percent. DEFAULT:0")
-        parser.add_argument("--x2", default=0, type=int,
-                            help="the latter percentage of the x interval e.g 30 percent. DEFAULT:0")
-        parser.add_argument("--y2", default=0, type=int,
-                            help="the latter percentage of the y interval e.g 30 percent. DEFAULT:0")
+        #TODO: Implement masking tool
+        # parser.add_argument("--x1", default=0, type=int,
+        #                     help="the first percentage of the x interval e.g 10 percent DEFAULT:0")
+        # parser.add_argument("--y1", default=0, type=int,
+        #                     help="the first percentage of the y interval e.g 10 percent. DEFAULT:0")
+        # parser.add_argument("--x2", default=0, type=int,
+        #                     help="the latter percentage of the x interval e.g 30 percent. DEFAULT:0")
+        # parser.add_argument("--y2", default=0, type=int,
+        #                     help="the latter percentage of the y interval e.g 30 percent. DEFAULT:0")
 
         args = parser.parse_args()
 
