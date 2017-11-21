@@ -110,7 +110,8 @@ The test_input.txt can be used in the following way:
 ```shell
 lin-reconstruct test_input.txt 
 ``` 
-Outputs: 
+Output
+
 <img src="examples/B_Reconstructed.png" width="425"/>
 
 ```shell
