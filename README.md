@@ -85,12 +85,7 @@ lin-reconstuct --tol 1.0E-05 --iter 8000 myfile.txt flash4 320
 ```
 This command line script ensures that Gauss-Seidel Tolerance is 1.0E-05 and the number of Gauss-Seidel Iterations 8000 and parses myfile.txt that has a file type of flash4 and a bin length of 320 micron
 #### Output
-
 The tool outputs Log Reconstructed Perpendicular Magnetic Field Projection
-<img src="examples/B_Reconstructed.png" width="425"/>
-<img src="examples/B_True.png" width="425"/>
-
-
 
 ### Tool 2: "lin-analyze"
 
@@ -107,11 +102,24 @@ lin-analyze myfile.txt flash4 400
 This command line parses myfile.txt that has a file type of flash4 and a bin length of 320 micron
 #### Output
 The tool outputs a flux and fluence contrast plot
+
+## Example Problem
+There is an test intermediary file, input.txt, contained in the example directory
+The input.txt can be used in the following way:
+```shell
+lin-reconstruct [options] input.txt 
+``` 
+Outputs: 
+<img src="examples/B_Reconstructed.png" width="425"/>
+
+```shell
+lin-analyze input.txt 
+```
+Output
 <p float="left">
-<img src="examples/Flux1.png" width="400" height="300"/>
+<img src="examples/Flux.png" width="400" height="300"/>
 <img src="examples/Fluence.png" width="400" height="300"/>
 </p>
-
 # Updating/Uninstalling
 > Write up how to update a current installation (and how to update dependencies as well), how to uninstall it
 
