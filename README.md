@@ -85,8 +85,7 @@ For more info check out pages 8 and 9: https://arxiv.org/abs/1603.08617
 ```shell
 lin-reconstuct --tol 1.0E-05 --iter 8000 input.txt
 ```
-This command line script ensures that Gauss-Seidel Tolerance is 1.0E-05 and the number of Gauss-Seidel Iterations 8000 and parses the input.txt constructed by [
-](https://github.com/flash-center/PRadReader).
+This command line script ensures that Gauss-Seidel Tolerance is 1.0E-05 and the number of Gauss-Seidel Iterations 8000 and parses the input.txt constructed by [PRadReader](https://github.com/flash-center/PRadReader).
 #### Output
 The tool outputs Log Reconstructed Perpendicular Magnetic Field Projection
 
@@ -110,8 +109,8 @@ The tool outputs a flux and fluence contrast plot
 There is an example intermediate file, test_input.txt, in the `examples/` directory which was generated from the magnetic field configuartion in the paper using [PRadReader](https://github.com/flash-center/PRadReader). 
 
 **Instructions**:
-1.The user should navaigate into the `examples/` directory and copy the file out. 
-2.From the same directory run this command
+1. The user should navaigate into the `examples/` directory and copy the file out. 
+2. From the same directory run this command
 ```shell
 lin-reconstruct test_input.txt 
 ``` 
