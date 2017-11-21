@@ -115,15 +115,15 @@ lin-reconstruct test_input.txt
 ``` 
 Output
 
-<img src="examples/B_Reconstructed.png" width="425"/>
+<img src="examples/reference_images/B_Reconstructed.png" width="425"/>
 
 ```shell
 lin-analyze test_input.txt 
 ```
 Output
 <p float="left">
-<img src="examples/Flux.png" width="400" height="300"/>
-<img src="examples/Fluence.png" width="400" height="300"/>
+<img src="examples/reference_images/Flux.png" width="400" height="300"/>
+<img src="examples/reference_images/Fluence.png" width="400" height="300"/>
 </p>
 
 # Updating/Uninstalling
