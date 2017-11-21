@@ -55,7 +55,9 @@ An intermediate file that contains the variables such as:
 * flux image which is a matrix with number of protons per bin of the screen which is dependent on the inputted bin length, flux
 * flux reference which is the flux image if there were no interaction region
 
+## How it Works
 
+The user has to run the PRadReader on there proton radiograph data which returns a intermediate file that can be used on both command line tools below.
 ## Command Line Tools
 
 Supported file formats include any that pradreader supports, including radiographs generated from FLASH simulations and MIT's CR39 proton radiography analysis
