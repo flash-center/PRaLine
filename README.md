@@ -30,7 +30,7 @@ pip install git+https://github.com/flash-center/PRadReader
 Depending on how Python was installed on your system, `pip` may require *Administrative* or `sudo` privileges.
 
 ## Installation
-Once all dependencies are satisfied, install the latest version of **lin_prad** by:
+Once all dependencies are satisfied, install the latest version of **PRaLine** by:
 
 ```shell
 pip install git+https://github.com/flash-center/PRaLine
@@ -46,7 +46,7 @@ python setup.py install
 
 # Usage
 ## Requirements
-An intermediate file is created using the [pradreader python package](https://github.com/flash-center/PRadReader).
+An intermediate file is created using the [PRadReader python package](https://github.com/flash-center/PRadReader).
 
 An intermediate file that contains the variables such as:
 * Distance from proton source to the interaction region(cm), s2r_cm
@@ -60,7 +60,7 @@ An intermediate file that contains the variables such as:
 The user has to run the PRadReader on there proton radiograph data which returns a intermediate file that can be used on both command line tools below.
 ## Command Line Tools
 
-Supported file formats include any that pradreader supports, including radiographs generated from FLASH simulations and MIT's CR39 proton radiography analysis
+Supported file formats include any that PRadReader supports, including radiographs generated from FLASH simulations and MIT's CR39 proton radiography analysis
 ### Tool 1: "lin-reconstruct"
 
 A command line tool for reconstructing the magnetic field of the data from a proton radiography experiment given an intermediate file with the requirements above. It outputs streamplots based on the reconstruction algorithim  
@@ -85,7 +85,8 @@ For more info check out pages 8 and 9: https://arxiv.org/abs/1603.08617
 ```shell
 lin-reconstuct --tol 1.0E-05 --iter 8000 input.txt
 ```
-This command line script ensures that Gauss-Seidel Tolerance is 1.0E-05 and the number of Gauss-Seidel Iterations 8000 and parses the input.txt constructed by [PRadReader](https://github.com/flash-center/PRadReader).
+This command line script ensures that Gauss-Seidel Tolerance is 1.0E-05 and the number of Gauss-Seidel Iterations 8000 and parses the input.txt constructed by [
+](https://github.com/flash-center/PRadReader).
 #### Output
 The tool outputs Log Reconstructed Perpendicular Magnetic Field Projection
 
