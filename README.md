@@ -109,7 +109,8 @@ This a test problem from the paper referenced at the top of this file. We have g
 The test_input.txt can be used in the following way:
 ```shell
 lin-reconstruct test_input.txt 
-``` Outputs: 
+``` 
+Outputs: 
 <img src="examples/B_Reconstructed.png" width="425"/>
 
 ```shell
