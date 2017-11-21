@@ -1,5 +1,8 @@
+# Test files
 *blob.out
 *blobfield.out
+examples/*.png
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
