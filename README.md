@@ -82,6 +82,7 @@ For more info check out pages 8 and 9: https://arxiv.org/abs/1603.08617
 #### Example
 ```shell
 lin-reconstuct --tol 1.0E-05 --iter 8000 input.txt
+```
 This command line script ensures that Gauss-Seidel Tolerance is 1.0E-05 and the number of Gauss-Seidel Iterations 8000 and parses the input.txt constructed by [PRadReader](https://github.com/flash-center/PRadReader).
 #### Output
 The tool outputs Log Reconstructed Perpendicular Magnetic Field Projection
