@@ -107,9 +107,10 @@ This command line parses input.txt that has been constructed by [PRadReader](htt
 The tool outputs a flux and fluence contrast plot
 
 ## Example Problem
-This a test problem from the paper referenced at the top of this file. We have generated an test intermediate file, test_input.txt, contained in the example directory to show the expected outputs of such files with each command line tool.
-
-The test_input.txt can be used in the following way:
+There is an example intermediate file, test_input.txt, in the `examples/` directory which was generated from the magnetic field configuartion in the paper using [PRadReader](https://github.com/flash-center/PRadReader). 
+**Instructions**:
+1.The user should navaigate into the `examples/` directory and copy the file out. 
+2.From the same directory run this command
 ```shell
 lin-reconstruct test_input.txt 
 ``` 
