@@ -33,7 +33,7 @@ def hist2D_plot(array, bin_um, type, title):
     -------
     "title".png (image):2D histogram Plot
     '''
-    print "Constructing " + title + " Plot"
+    print ("Constructing " + title + " Plot")
     font = {'family': 'serif',
         'color':  'black',
         'weight': 'normal',
@@ -79,7 +79,7 @@ def hist2D_plot(array, bin_um, type, title):
         x = "Flash"
     elif type == 'mitcsv':
         x = 'MITCSV'
-        
+
     ax.set_title(x + ": " + title,fontdict=font)
     fig.savefig(title+".png", format='png')
 
@@ -99,7 +99,7 @@ def err2D_plot(array, bin_um, type, title):
     -------
     "title".png (image):2D histogram Plot
     '''
-    print "Constructing Counts/Bin Plot"
+    print ("Constructing Counts/Bin Plot")
     font = {'family': 'serif',
         'color':  'black',
         'weight': 'normal',

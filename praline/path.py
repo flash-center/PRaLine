@@ -90,7 +90,7 @@ def mag_parse(fname, bin_um):
                 Bperp[i, j, :] /= flux[i, j]
                 J[i, j] /= flux[i, j]
             except ZeroDivisionError:
-                print "Zero pixel, will screw everything up."
+                print ("Zero pixel, will screw everything up.")
                 raise ValueError
 
     return Bperp, J, avg_fluence, im_fluence

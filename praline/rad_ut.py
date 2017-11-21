@@ -93,7 +93,7 @@ def Gauss_Seidel(x, y, D, O, b, maxiter=2000, tol=1.0E-02, talk=0):
         r = residual(x, y, D, O, b)
         L2r = fnorm(r) / L2b
         if talk > 0 and itn % talk == 0:
-            print "Iteration # %d, L2 of residual = %10.3E" % (itn, L2r)
+            print ("Iteration # %d, L2 of residual = %10.3E" % (itn, L2r))
         if L2r <= tol: break
 
     return (L2r, itn)

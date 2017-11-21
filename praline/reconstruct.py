@@ -68,8 +68,8 @@ def L2(bin_um, s2r_cm, s2d_cm, BperpR, BperpS):
     L2B = ru.fnorm(BperpR - BperpS) / ru.fnorm(BperpS)
 
     buf = "EB = %12.5E ; EB_Reconstructed = %12.5E" % (EB, EBR)
-    print "...done.  " + buf
-    print "Relative L2 norm of (reconstructed B - actual B) = %12.5E" % L2B
+    print ("...done.  " + buf)
+    print ("Relative L2 norm of (reconstructed B - actual B) = %12.5E" % L2B)
 
 
 def prad_wrap():
@@ -101,7 +101,7 @@ def prad_wrap():
     # y_end = args.y2
 
     #############################
-    print "STARTING RECONSTRUCTION AND PLOTTING..."
+    print ("STARTING RECONSTRUCTION AND PLOTTING...")
     # Object for handling all the attributes of a proton radiography construction
     # problem. Typically, different proton radiograph formats are read into this
     # object for use with other reconstruction tools.
@@ -117,7 +117,7 @@ def prad_wrap():
     flux_ref = flux_ref.T
 
     # Magnetic Field Alogrithm
-    print "Calculating Magnetic Perpendicular Field..."
+    print ("Calculating Magnetic Perpendicular Field...")
     Bperp = np.zeros((flux.shape[0], flux.shape[0], 2))
 
     BperpR, BperpS = alog.B_recon(

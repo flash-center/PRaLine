@@ -128,7 +128,7 @@ def B_recon(flux, flux_ref, Bperp, s2r_cm, s2d_cm, bin_um, Ep_MeV, tol_iter, max
     # Uniform B Field Strength
     Bconst = b_field(s2r_cm, s2d_cm, Ep_MeV)
     # Iterate to solution
-    print "Gauss-Seidel Iteration..."
+    print ("Gauss-Seidel Iteration...")
     GS = ru.Gauss_Seidel(phi, np.exp(Lam), D, O, Src,
                          talk=20, tol=tol_iter, maxiter=max_iter)
     # Multiplying by the area of the bin
@@ -152,5 +152,5 @@ def B_recon(flux, flux_ref, Bperp, s2r_cm, s2d_cm, bin_um, Ep_MeV, tol_iter, max
             # idx = ru.vec2idx(x)
             # BperpS[i, j, :] = Bperp[idx[0] % num_bins, idx[1] % num_bins, :]
 
-    print "#L2 norm of residual = %12.5E ;  Number of Gauss-Seidel iterations = %d\n" % GS
+    print ("#L2 norm of residual = %12.5E ;  Number of Gauss-Seidel iterations = %d\n" % GS)
     return BperpR, BperpS
