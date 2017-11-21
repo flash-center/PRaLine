@@ -55,7 +55,9 @@ An intermediate file that contains the variables such as:
 * flux image which is a matrix with number of protons per bin of the screen which is dependent on the inputted bin length, flux
 * flux reference which is the flux image if there were no interaction region
 
+## How it Works
 
+The user has to run the PRadReader on there proton radiograph data which returns a intermediate file that can be used on both command line tools below.
 ## Command Line Tools
 
 Supported file formats include any that pradreader supports, including radiographs generated from FLASH simulations and MIT's CR39 proton radiography analysis
@@ -64,7 +66,7 @@ Supported file formats include any that pradreader supports, including radiograp
 A command line tool for reconstructing the magnetic field of the data from a proton radiography experiment given an intermediate file with the requirements above. It outputs streamplots based on the reconstruction algorithim  
 #### Usage
 ```shell
-lin-reconstruct [options] [intermeidary file] 
+lin-reconstruct [options] [intermediate file] 
 ```
 ##### Options
 
@@ -93,7 +95,7 @@ A command line tool for analysis of a proton radiography experiment. Analysis is
 
 #### Usage
 ```shell
-lin-analyze [intermediary file]
+lin-analyze [intermediate file]
 ```
 #### Example
 ```shell
@@ -104,24 +106,27 @@ This command line parses input.txt that has been constructed by [PRadReader](htt
 The tool outputs a flux and fluence contrast plot
 
 ## Example Problem
-There is an test intermediary file, input.txt, contained in the example directory
-The input.txt can be used in the following way:
+This a test problem from the paper referenced at the top of this file. We have generated an test intermediate file, test_input.txt, contained in the example directory to show the expected outputs of such files with each command line tool.
+
+The test_input.txt can be used in the following way:
 ```shell
-lin-reconstruct input.txt 
+lin-reconstruct test_input.txt 
 ``` 
-Outputs: 
+Output
+
 <img src="examples/B_Reconstructed.png" width="425"/>
 
 ```shell
-lin-analyze input.txt 
+lin-analyze test_input.txt 
 ```
 Output
 <p float="left">
 <img src="examples/Flux.png" width="400" height="300"/>
 <img src="examples/Fluence.png" width="400" height="300"/>
 </p>
+
 # Updating/Uninstalling
-> Write up how to update a current installation (and how to update dependencies as well), how to uninstall it
+Write up how to update a current installation (and how to update dependencies as well), how to uninstall it
 
 To update **PRaLine** at a later date, ...
 
