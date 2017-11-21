@@ -7,7 +7,7 @@ import sys
 import math
 
 from pradreader import reader
-import alogrithm as alog
+import algorithm as alog
 import Bplot2 as plot
 import image
 import path
@@ -21,7 +21,6 @@ def get_input_data():
         '''
         Command line options and variables
         '''
-        avail_input_formats = ['carlo', 'flash4', 'mitcsv']
         parser = ap.ArgumentParser(
             description="This script is used to reconstruct the magnetic field of "
             "Proton Radiography experiment")
@@ -60,29 +59,25 @@ def prad_wrap():
     files (string): flux and fluence contrast plots and other various plots if
     path integrated data is available.
     '''
-    # Input variables and options
-    args = get_input_data()
-    fn = args.input_file
-    rtype = args.type
-    bin_um = args.bin_um
-    x_start = args.x1
-    y_start = args.y1
-    x_end = args.x2
-    y_end = args.y2
-    # Floor counts per bin
-    flux_min = 10.0
-    x = pd.read_csv(sys.argv[1], header=None,delim_whitespace=True, comment='#',usecols=[0])
-    num_prot = len(x)
-
     print "STARTING ANALYSIS AND PLOTTING..."
     # First Parameter: Path name of the file
     # Second Parameter: The type of experimental output
-    fname = reader.reader(fn, rtype, x_start, x_end, y_start, y_end, bin_um)
-    flux, flux_ref, mask, s2r_cm, s2d_cm, Ep_MeV, bin_um = path.parse_im(fname)
+    # Input variables and options
+    args = get_input_data()
+    fn = args.input_file
+    pr = reader.loadPRRp(fn)
+    rtype = pr.rtype
+    flux = pr.flux2D
+    flux_ref = pr.flux2D_ref
+    sr2_cm = pr.s2r_cm
+    s2d_cm = pr.s2d_cm
+    Ep_MeV = pr.Ep_MeV
+    bin_um = pr.bin_um
     flux = flux.T
     flux_ref = flux_ref.T
     print("\n")
 
+    flux_min =10.0
     # Protons per bin 2D Histogram
     image.hist2D_plot(flux, bin_um, rtype,"Flux")
     print "Mean counts per bin: %12.5E ; Std. Dev. Counts per bin: %12.5E" % (flux.mean(), flux.std())
@@ -96,15 +91,6 @@ def prad_wrap():
     Flpos = fluc[flux >= flux_min]
     print "Mean Fluct.: %12.5E ; Std. Dev. Fluct.: %12.5E" % (Flpos.mean(), Flpos.std())
     print "Max Fluct: %12.5E ; Min Fluct: %12.5E" % (Flpos.max(), Flpos.min())
-
-    if sys.argv[2] == "carlo":
-        x = pd.read_csv(sys.argv[1], header=None,delim_whitespace=True, comment='#',usecols=[0])
-        num_prot = len(x)
-
-        Bperp, J, avg_fluence, im_fluence = path.mag_parse(fn, bin_um)
-
-        print "Total sample Average Fluence: %12.5E ; Image Average Fluence: %12.5E" % (avg_fluence, im_fluence)
-        print "Total protons in sample: %d" % num_prot
 
 if __name__=="__main__":
     prad_wrap()

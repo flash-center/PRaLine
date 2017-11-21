@@ -6,10 +6,10 @@ Acts as a wrapper that runs the recons in this project
 import sys
 import os.path
 
-from PRadReader.pradreader import reader
+from pradreader import reader
 import Bplot2 as plot
 import rad_ut as ru
-import alogrithm as alog
+import algorithm as alog
 import path
 import image
 
@@ -99,6 +99,7 @@ def prad_wrap():
     # y_start = args.y1
     # x_end = args.x2
     # y_end = args.y2
+
     #############################
     print "STARTING RECONSTRUCTION AND PLOTTING..."
     # Object for handling all the attributes of a proton radiography construction
@@ -108,12 +109,12 @@ def prad_wrap():
     rtype = pr.rtype
     flux = pr.flux2D
     flux_ref = pr.flux2D_ref
-    sr2_cm = pr.s2r_cm
+    s2r_cm = pr.s2r_cm
     s2d_cm = pr.s2d_cm
     Ep_MeV = pr.Ep_MeV
     bin_um = pr.bin_um
-    # flux = flux.T
-    # flux_ref = flux_ref.T
+    flux = flux.T
+    flux_ref = flux_ref.T
 
     # Magnetic Field Alogrithm
     print "Calculating Magnetic Perpendicular Field..."
@@ -124,13 +125,6 @@ def prad_wrap():
 
     #  Genereates the Log Reconstructed B perpendicular Projection,B_recon.png
     plot.B_plot(BperpR, flux_ref, bin_um, rtype, "Reconstructed")
-
-    # Genereates the Log True B perpendicular Projection,B_true.png
-    # if sys.argv[2] == "carlo":
-    #     plot.B_plot(BperpS, flux_ref, bin_um, rtype, "True")
-        #
-        # # Relative L2 between Reconstructed and Path integrated magnetic field
-        # L2(bin_um, s2r_cm, s2d_cm, BperpR, BperpS)
 
 
 if __name__ == "__main__":
