@@ -107,13 +107,13 @@ The tool outputs a flux and fluence contrast plot
 There is an test intermediary file, input.txt, contained in the example directory
 The input.txt can be used in the following way:
 ```shell
-lin-reconstruct input.txt 
+lin-reconstruct test_input.txt 
 ``` 
 Outputs: 
 <img src="examples/B_Reconstructed.png" width="425"/>
 
 ```shell
-lin-analyze input.txt 
+lin-analyze test_input.txt 
 ```
 Output
 <p float="left">
