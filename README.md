@@ -83,7 +83,7 @@ For more info check out pages 8 and 9: https://arxiv.org/abs/1603.08617
 
 #### Example
 ```shell
-lin-reconstuct --tol 1.0E-05 --iter 8000 input.txt
+lin-reconstuct --tol 1.0E-05 --iter 8000 input.p
 ```
 This command line script ensures that Gauss-Seidel Tolerance is 1.0E-05 and the number of Gauss-Seidel Iterations 8000 and parses the input.txt constructed by [PRadReader](https://github.com/flash-center/PRadReader).
 #### Output
@@ -99,7 +99,7 @@ lin-analyze [intermediate file]
 ```
 #### Example
 ```shell
-lin-analyze input.txt
+lin-analyze input.p
 ```
 This command line parses input.txt that has been constructed by [PRadReader](https://github.com/flash-center/PRadReader).
 #### Output
@@ -112,14 +112,14 @@ There is an example intermediate file, test_input.txt, in the `examples/` direct
 1. The user should navaigate into the `examples/` directory and copy the file out. 
 2. From the same directory run this command
 ```shell
-lin-reconstruct test_input.txt 
+lin-reconstruct test_input.p
 ``` 
 Output
 
 <img src="examples/reference_images/B_Reconstructed.png" width="425"/>
 
 ```shell
-lin-analyze test_input.txt 
+lin-analyze test_input.p
 ```
 Output
 <p float="left">
