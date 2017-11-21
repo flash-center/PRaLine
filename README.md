@@ -137,5 +137,5 @@ pip install --upgrade git+https://github.com/flash-center/PRaLine
 
 To uninstall **PRaLine**
 ```shell
-pip uninstall PRaLine
+pip uninstall praline
 ```
