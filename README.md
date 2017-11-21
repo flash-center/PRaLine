@@ -64,7 +64,7 @@ Supported file formats include any that pradreader supports, including radiograp
 A command line tool for reconstructing the magnetic field of the data from a proton radiography experiment given an intermediate file with the requirements above. It outputs streamplots based on the reconstruction algorithim  
 #### Usage
 ```shell
-lin-reconstruct [options] [input file] 
+lin-reconstruct [options] [intermeidary file] 
 ```
 ##### Options
 
@@ -81,9 +81,8 @@ For more info check out pages 8 and 9: https://arxiv.org/abs/1603.08617
 
 #### Example
 ```shell
-lin-reconstuct --tol 1.0E-05 --iter 8000 myfile.txt flash4 320
-```
-This command line script ensures that Gauss-Seidel Tolerance is 1.0E-05 and the number of Gauss-Seidel Iterations 8000 and parses myfile.txt that has a file type of flash4 and a bin length of 320 micron
+lin-reconstuct --tol 1.0E-05 --iter 8000 input.txt
+This command line script ensures that Gauss-Seidel Tolerance is 1.0E-05 and the number of Gauss-Seidel Iterations 8000 and parses the input.txt constructed by [PRadReader](https://github.com/flash-center/PRadReader).
 #### Output
 The tool outputs Log Reconstructed Perpendicular Magnetic Field Projection
 
@@ -93,13 +92,13 @@ A command line tool for analysis of a proton radiography experiment. Analysis is
 
 #### Usage
 ```shell
-lin-analyze [input file] [file type] [bin length(microns)]
+lin-analyze [intermediary file]
 ```
 #### Example
 ```shell
-lin-analyze myfile.txt flash4 400
+lin-analyze input.txt
 ```
-This command line parses myfile.txt that has a file type of flash4 and a bin length of 320 micron
+This command line parses input.txt that has been constructed by [PRadReader](https://github.com/flash-center/PRadReader).
 #### Output
 The tool outputs a flux and fluence contrast plot
 
