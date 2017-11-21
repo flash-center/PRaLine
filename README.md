@@ -17,20 +17,20 @@ The following Python packages are required:
 * scipy (Scientific computing)
 * matplotlib (Plotting)
 * pandas (Parsing Large files)
-* pradreader (https://github.com/jtlaune/pradreader) (Reading various proton radiograph file formats)
+* pradreader ((https://github.com/flash-center/PRadReader) (Reading various proton radiograph file formats)
 
 On most systems (see above note for OS X), they can be installed using Python's [PIP package manager](https://packaging.python.org/tutorials/installing-packages/) as follows:
 
 ```shell
 pip install future
 pip install numpy scipy matplotlib pandas
-pip install git+https://github.com/jtlaune/pradreader
+pip install git+(https://github.com/flash-center/PRadReader)
 ```
 
 Depending on how Python was installed on your system, `pip` may require *Administrative* or `sudo` privileges.
 
 ## Installation
-Once all dependencies are satisfied, install the latest version of **lin_prad** by:
+Once all dependencies are satisfied, install the latest version of **PRaLine** by:
 
 ```shell
 pip install git+https://github.com/flash-center/PRaLine
@@ -66,7 +66,7 @@ Supported file formats include any that pradreader supports, including radiograp
 A command line tool for reconstructing the magnetic field of the data from a proton radiography experiment given an intermediate file with the requirements above. It outputs streamplots based on the reconstruction algorithim  
 #### Usage
 ```shell
-lin-reconstruct [options] [intermediate file] 
+lin-reconstruct [options] [intermediate file]
 ```
 ##### Options
 
@@ -110,14 +110,14 @@ This a test problem from the paper referenced at the top of this file. We have g
 
 The test_input.txt can be used in the following way:
 ```shell
-lin-reconstruct test_input.txt 
-``` 
+lin-reconstruct test_input.txt
+```
 Output
 
 <img src="examples/B_Reconstructed.png" width="425"/>
 
 ```shell
-lin-analyze test_input.txt 
+lin-analyze test_input.txt
 ```
 Output
 <p float="left">
