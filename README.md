@@ -120,8 +120,9 @@ Output
 <img src="examples/Flux.png" width="400" height="300"/>
 <img src="examples/Fluence.png" width="400" height="300"/>
 </p>
+
 # Updating/Uninstalling
-> Write up how to update a current installation (and how to update dependencies as well), how to uninstall it
+Write up how to update a current installation (and how to update dependencies as well), how to uninstall it
 
 To update **PRaLine** at a later date, ...
 
