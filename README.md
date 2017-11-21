@@ -115,7 +115,7 @@ There is an example intermediate file, test_input.p, in the `examples/` director
 ```shell
 lin-reconstruct test_input.p
 ``` 
-Output
+Output (after 4000 iterations)
 
 <img src="examples/reference_images/B_Reconstructed.png" width="425"/>
 
