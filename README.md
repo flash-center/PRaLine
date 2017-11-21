@@ -64,7 +64,7 @@ Supported file formats include any that pradreader supports, including radiograp
 A command line tool for reconstructing the magnetic field of the data from a proton radiography experiment given an intermediate file with the requirements above. It outputs streamplots based on the reconstruction algorithim  
 #### Usage
 ```shell
-lin-reconstruct [options] [intermeidary file] 
+lin-reconstruct [options] [intermediate file] 
 ```
 ##### Options
 
@@ -93,7 +93,7 @@ A command line tool for analysis of a proton radiography experiment. Analysis is
 
 #### Usage
 ```shell
-lin-analyze [intermediary file]
+lin-analyze [intermediate file]
 ```
 #### Example
 ```shell
@@ -104,7 +104,7 @@ This command line parses input.txt that has been constructed by [PRadReader](htt
 The tool outputs a flux and fluence contrast plot
 
 ## Example Problem
-This a test problem from the paper referenced at the top of this file. We have generated an test intermediary file, test_input.txt, contained in the example directory to show the expected outputs of such files with each command line tool.
+This a test problem from the paper referenced at the top of this file. We have generated an test intermediate file, test_input.txt, contained in the example directory to show the expected outputs of such files with each command line tool.
 
 The test_input.txt can be used in the following way:
 ```shell
