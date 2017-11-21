@@ -104,7 +104,7 @@ This command line parses input.txt that has been constructed by [PRadReader](htt
 The tool outputs a flux and fluence contrast plot
 
 ## Example Problem
-This a test problem from the paper referenced at the top of this file. We have generated an test intermediary file, input.txt, contained in the example directory to show the expected outputs of such files with each command line tool.
+This a test problem from the paper referenced at the top of this file. We have generated an test intermediary file, test_input.txt, contained in the example directory to show the expected outputs of such files with each command line tool.
 
 The test_input.txt can be used in the following way:
 ```shell
