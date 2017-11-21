@@ -83,10 +83,9 @@ For more info check out pages 8 and 9: https://arxiv.org/abs/1603.08617
 
 #### Example
 ```shell
-lin-reconstuct --tol 1.0E-05 --iter 8000 input.txt
+lin-reconstuct --tol 1.0E-05 --iter 8000 input.p
 ```
-This command line script ensures that Gauss-Seidel Tolerance is 1.0E-05 and the number of Gauss-Seidel Iterations 8000 and parses the input.txt constructed by [
-](https://github.com/flash-center/PRadReader).
+This command line script ensures that Gauss-Seidel Tolerance is 1.0E-05 and the number of Gauss-Seidel Iterations 8000 and parses the input.txt constructed by [PRadReader](https://github.com/flash-center/PRadReader).
 #### Output
 The tool outputs Log Reconstructed Perpendicular Magnetic Field Projection
 
@@ -100,25 +99,28 @@ lin-analyze [intermediate file]
 ```
 #### Example
 ```shell
-lin-analyze input.txt
+lin-analyze input.p
 ```
 This command line parses input.txt that has been constructed by [PRadReader](https://github.com/flash-center/PRadReader).
 #### Output
 The tool outputs a flux and fluence contrast plot
 
 ## Example Problem
-This a test problem from the paper referenced at the top of this file. We have generated an test intermediate file, test_input.txt, contained in the example directory to show the expected outputs of such files with each command line tool.
+There is an example intermediate file, test_input.txt, in the `examples/` directory which was generated from the magnetic field configuartion in the paper using [PRadReader](https://github.com/flash-center/PRadReader). 
 
-The test_input.txt can be used in the following way:
+**Instructions**:
+1. The user should follow the instructions for the installation of package above and also clone the repository 
+2. Navaigate into the `examples/` directory and copy the file,`test_input.p`, out. 
+3. From the same directory run this command
 ```shell
-lin-reconstruct test_input.txt 
+lin-reconstruct test_input.p
 ``` 
 Output
 
 <img src="examples/reference_images/B_Reconstructed.png" width="425"/>
 
 ```shell
-lin-analyze test_input.txt 
+lin-analyze test_input.p
 ```
 Output
 <p float="left">
