@@ -108,6 +108,7 @@ The tool outputs a flux and fluence contrast plot
 
 ## Example Problem
 There is an example intermediate file, test_input.txt, in the `examples/` directory which was generated from the magnetic field configuartion in the paper using [PRadReader](https://github.com/flash-center/PRadReader). 
+
 **Instructions**:
 1.The user should navaigate into the `examples/` directory and copy the file out. 
 2.From the same directory run this command
