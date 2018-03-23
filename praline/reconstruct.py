@@ -31,16 +31,6 @@ def get_input_data():
                         help="The Gauss-Seidel tolerance. DEFAULT:1.0E-04")
     parser.add_argument("--iter", default=4000, type=int,
                         help="The number of Gauss-Seidel iterations. DEFAULT:4000")
-    # TODO: Implement masking tools
-    # parser.add_argument("--x1", default=0, type=int,
-    #                     help="the first percentage of the x interval e.g 10 percent DEFAULT:0")
-    # parser.add_argument("--y1", default=0, type=int,
-    #                     help="the first percentage of the y interval e.g 10 percent. DEFAULT:0")
-    # parser.add_argument("--x2", default=0, type=int,
-    #                     help="the latter percentage of the x interval e.g 30 percent. DEFAULT:0")
-    # parser.add_argument("--y2", default=0, type=int,
-    #                     help="the latter percentage of the y interval e.g 30 percent. DEFAULT:0")
-
     args = parser.parse_args()
 
     return args
@@ -95,17 +85,14 @@ def prad_wrap():
     fn = args.input_file
     tol_iter = args.tol
     max_iter = args.iter
-    # x_start = args.x1
-    # y_start = args.y1
-    # x_end = args.x2
-    # y_end = args.y2
+
 
     #############################
     print ("STARTING RECONSTRUCTION AND PLOTTING...")
     # Object for handling all the attributes of a proton radiography construction
     # problem. Typically, different proton radiograph formats are read into this
     # object for use with other reconstruction tools.
-    pr = reader.loadPRRp(fn)
+    pr = reader.loadPRR(fn)
     rtype = pr.rtype
     flux = pr.flux2D
     flux_ref = pr.flux2D_ref
