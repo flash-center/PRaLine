@@ -40,7 +40,7 @@ The module can also be installed by:
 
 ```shell
 git clone https://github.com/flash-center/PRaLine
-cd praline
+cd PRaLine
 python setup.py install
 ```
 
