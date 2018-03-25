@@ -113,14 +113,14 @@ There is an example intermediate file, test_input.p, in the `examples/` director
 2. Navigate into the `examples/` directory and copy the file,`test_input.p`, out. 
 3. From the same directory run this command
 ```shell
-lin-reconstruct test_input.p
+lin-reconstruct test_input.txt
 ``` 
 Output (after 4000 iterations)
 
 <img src="examples/reference_images/B_Reconstructed.png" width="425"/>
 
 ```shell
-lin-analyze test_input.p
+lin-analyze test_input.txt
 ```
 Output
 <p float="left">
