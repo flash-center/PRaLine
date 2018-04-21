@@ -5,8 +5,7 @@ Acts as a wrapper that runs the recons in this project
 '''
 import sys
 import os.path
-
-from pradreader import reader
+import pradreader
 import Bplot2 as plot
 import rad_ut as ru
 import algorithm as alog
@@ -92,7 +91,7 @@ def prad_wrap():
     # Object for handling all the attributes of a proton radiography construction
     # problem. Typically, different proton radiograph formats are read into this
     # object for use with other reconstruction tools.
-    pr = reader.loadPRR(fn)
+    prad = pradreader.reader.loadPRR(fn)
     rtype = pr.rtype
     flux = pr.flux2D
     flux_ref = pr.flux2D_ref
