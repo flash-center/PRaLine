@@ -39,6 +39,7 @@ def b_field(s2r_cm, s2d_cm, Ep_MeV):
 def steady_state(flux, flux_ref):
     '''
     The goal is the obtain the steady-state diffusion Equation
+    Assumes flux and flux_ref are equal size in X and Y
 
     Parameters
     ----------
@@ -103,7 +104,8 @@ def O(i, j, x, y):
 def B_recon(flux, flux_ref, s2r_cm, s2d_cm, bin_um, Ep_MeV, tol_iter, max_iter):
     '''
     Produces a reconstructed magnetic field
-
+    Assumes flux and flux_ref are equal size in X and Y
+    
     Parameters
     ----------
     flux (2D array): Number of protons per bin
@@ -115,8 +117,7 @@ def B_recon(flux, flux_ref, s2r_cm, s2d_cm, bin_um, Ep_MeV, tol_iter, max_iter):
 
     Returns
     -------
-    BperpR (2D array of (x,y)): Reconstructed Magnetic Field
-    BperpS (2D array of (x,y)): True Magnetic Field
+    BperpR (3D array of (x,y,2)): Reconstructed Magnetic Field components
     '''
     ru.delta = bin_um / 10000.0
 

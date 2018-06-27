@@ -98,6 +98,124 @@ def Gauss_Seidel(x, y, D, O, b, maxiter=2000, tol=1.0E-02, talk=0):
 
     return (L2r, itn)
 
+def steady_state2(flux, flux_ref):
+    '''
+    Obtain the steady-state diffusion equation using Taylor Expansion
+    This version does not assume flux and flux_ref are equal size in X and Y
+    Uses NumPy broadcasting
+    Re-written by Scott Feister 2018-06-27
+    
+    Parameters
+    ----------
+    flux (2D array): Number of protons per bin
+    flux_ref (2D array): Number protons per bin without an interaction region
+
+    Returns
+    -------
+    Lam (2D array): fluence contrast
+    Src (2D array): Source term from multiplying the fluence contrast and exp(fluence contrast)
+    '''
+    Lam = np.zeros(flux.shape)
+
+    ct = (flux_ref > 0) & (flux > 0) # Condition ensuring regions of zero flux are not computed
+    
+    # Taylor expansion
+    Lam[ct] = 2.0 * ( 1.0 - np.sqrt(flux_ref[ct]/flux[ct]))
+    
+    # Source Term
+    # RHS of the Steady-State Diffusion Equation
+    Src = Lam * np.exp(Lam)
+
+    return (Src, Lam)
+
+def roll_enforce_N(y, shift, axis=0):
+    """
+    Similar to ru.bc_enforce_N
+    shift  should be 1 or -1 
+    axis should be 0 or 1"""
+    y2 = np.roll(y, shift, axis=axis)
+    if shift == 1:
+        if axis == 0:
+            y2[0,:] = -y[0,:]
+        elif axis == 1:
+            y2[:,0] = -y[:,0]
+    if shift == -1:
+        if axis == 0:
+            y2[-1,:] = -y[-1,:]
+        elif axis == 1:
+            y2[:,-1] = -y[:,-1]
+            
+    return y2
+
+def roll_enforce_D(y, shift, axis=0):
+    """
+    Similar to ru.bc_enforce_N
+    shift  should be 1 or -1 
+    axis should be 0 or 1"""
+    y2 = np.roll(y, shift, axis=axis)
+    if shift == 1:
+        if axis == 0:
+            y2[0,:] = y[0,:]
+        elif axis == 1:
+            y2[:,0] = y[:,0]
+    if shift == -1:
+        if axis == 0:
+            y2[-1,:] = y[-1,:]
+        elif axis == 1:
+            y2[:,-1] = y[:,-1]
+            
+    return y2
+
+def D2(y):
+    '''
+    Supplemental function used during Gauss-Seidel Iteration
+    Vectorized
+    '''
+    d = -2.0 * y - 0.5 * (roll_enforce_N(y,-1,0) +
+                                roll_enforce_N(y,1,0) +
+                                roll_enforce_N(y,-1,1) +
+                                roll_enforce_N(y,1,1))
+
+    return d
+
+
+
+def O2(x, y):
+    '''
+    Supplemental function used during Gauss-Seidel Iteration
+    Vectorized
+    '''
+    a = 0.5 * (roll_enforce_D(x,-1,0) * (roll_enforce_N(y,-1,0) + y) +
+               roll_enforce_D(x,1,0) * (roll_enforce_N(y,1,0) + y) +
+               roll_enforce_D(x,-1,1) * (roll_enforce_N(y,-1,1) + y) +
+               roll_enforce_D(x,1,1) * (roll_enforce_N(y,1,1) + y))
+
+    return a
+    
+def GS_Iteration2(x, y, D, O, b):
+    """ Similar to function GS_Iteration, but requiring vectorized functions D and O """
+    x = (b - O(x,y)) / D(y)
+    return x
+    
+def residual2(x, y, D, O, b):
+    """ Similar to function residual, but requiring vectorized functions D and O """
+    r = O(x,y) + D(y)*x - b
+    return r
+
+def Gauss_Seidel2(x, y, D, O, b, maxiter=2000, tol=1.0E-02, talk=0):
+    """ Similar to function Gauss_Seidel, but utilizing vectorized functions D2 and O2 """
+    L2b = fnorm(b)
+    for itn in range(maxiter):
+        xprev = x.copy()
+        x = GS_Iteration2(x, y, D, O, b)
+        r = residual2(x, y, D, O, b)
+        L2r = fnorm(r) / L2b
+        if talk > 0 and itn % talk == 0:
+            print ("Iteration # %d, L2 of residual = %10.3E" % (itn, L2r))
+        if L2r <= tol: break
+
+    return (L2r, itn)
+
 def bc_enforce_D(x, i, j):
     if i < 0:
         return -x[0,j]
