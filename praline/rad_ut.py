@@ -1,8 +1,8 @@
 
 
 '''
-This module contains funcitons
-for caluclating purposes in the reconstruction alogorithm
+This module contains functions
+for calculating purposes in the reconstruction algorithm
 '''
 import math
 

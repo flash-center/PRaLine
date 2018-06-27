@@ -2,7 +2,7 @@
 
 '''
 Provides function that will plot the reconstructed magnetic field caluctlated from
-the alogrithm in recconstruct.py
+the algorithm in recconstruct.py
 '''
 
 import math

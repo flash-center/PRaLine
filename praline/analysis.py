@@ -7,7 +7,7 @@ import sys
 import math
 
 from pradreader import reader
-import algorithm as alog
+import algorithm as algo
 import Bplot2 as plot
 import image
 import path
@@ -86,7 +86,7 @@ def prad_wrap():
     print "Number of bins with %d or fewer protons: %d\n" % (flux_min, flux.size - flux[ flux>flux_min ].size)
 
     # Fluence Distrubtion of protons at the screen 2D Histogram
-    Src, fluc = alog.steady_state(flux, flux_ref)
+    Src, fluc = algo.steady_state(flux, flux_ref)
     image.hist2D_plot(fluc, bin_um, rtype, "Fluence")
     Flpos = fluc[flux >= flux_min]
     print "Mean Fluct.: %12.5E ; Std. Dev. Fluct.: %12.5E" % (Flpos.mean(), Flpos.std())

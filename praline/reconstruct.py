@@ -8,7 +8,7 @@ import os.path
 import pradreader
 import Bplot2 as plot
 import rad_ut as ru
-import algorithm as alog
+import algorithm as algo
 import path
 import image
 
@@ -102,12 +102,11 @@ def prad_wrap():
     flux = flux.T
     flux_ref = flux_ref.T
 
-    # Magnetic Field Alogrithm
+    # Magnetic Field Algorithm
     print ("Calculating Magnetic Perpendicular Field...")
-    Bperp = np.zeros((flux.shape[0], flux.shape[0], 2))
 
-    BperpR, BperpS = alog.B_recon(
-        flux, flux_ref, Bperp, s2d_cm, s2r_cm, bin_um, Ep_MeV, tol_iter, max_iter)
+    BperpR = algo.B_recon(
+        flux, flux_ref, s2d_cm, s2r_cm, bin_um, Ep_MeV, tol_iter, max_iter)
 
     #  Genereates the Log Reconstructed B perpendicular Projection,B_recon.png
     plot.B_plot(BperpR, flux_ref, bin_um, rtype, "Reconstructed")
