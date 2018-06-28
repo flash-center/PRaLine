@@ -9,7 +9,7 @@ The published manuscript may be found [here](https://doi.org/10.1063/1.5013029) 
 # Setup
 
 ## Dependencies
-This module requires **Python 2.7** or **3.5**. Installation requires **git**.
+This module requires **Python 2.7** (development branch works with **Python 3.6**). Installation requires **git**.
 
 **OS X users:** Prior to installing dependencies, ensure an adequate Python installation by following [this guide](https://matplotlib.org/faq/installing_faq.html#osx-notes). The Python that ships with OS X may not work well with some required dependencies.
 
@@ -85,7 +85,7 @@ For more info check out pages 8 and 9: https://arxiv.org/abs/1603.08617
 
 #### Example
 ```shell
-lin-reconstuct --tol 1.0E-05 --iter 8000 input.txt
+lin-reconstruct --tol 1.0E-05 --iter 8000 input.txt
 ```
 This command line script ensures that Gauss-Seidel Tolerance is 1.0E-05 and the number of Gauss-Seidel Iterations 8000 and parses the input.txt constructed by [PRadReader](https://github.com/flash-center/PRadReader).
 #### Output
@@ -115,14 +115,14 @@ There is an example intermediate file, test_input.txt, in the `examples/` direct
 2. Navigate into the `examples/` directory and copy the file,`test_input.txt`, out. 
 3. From the same directory run this command
 ```shell
-lin-reconstruct test_input.txt
+lin-reconstruct test_input.p
 ``` 
 Output (after 4000 iterations)
 
 <img src="examples/reference_images/B_Reconstructed.png" width="425"/>
 
 ```shell
-lin-analyze test_input.txt
+lin-analyze test_input.p
 ```
 Output
 <p float="left">

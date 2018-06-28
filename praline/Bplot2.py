@@ -97,6 +97,8 @@ def B_plot(B, flux_ref, bin_um, type, title):
         x = "Flash"
     elif type == 'mitcsv':
         x = 'MITCSV'
+    else:
+        x = str(type)
 
     ax.set(title=x + ": Log " + title + r" $B_\perp$ Projection (G cm)",
            ylabel=r"Y (cm)", xlabel=r"X (cm)")

@@ -91,7 +91,7 @@ def prad_wrap():
     # Object for handling all the attributes of a proton radiography construction
     # problem. Typically, different proton radiograph formats are read into this
     # object for use with other reconstruction tools.
-    prad = pradreader.reader.loadPRR(fn)
+    pr = pradreader.reader.loadPRRp(fn)
     rtype = pr.rtype
     flux = pr.flux2D
     flux_ref = pr.flux2D_ref
