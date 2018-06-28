@@ -144,9 +144,9 @@ def bc_enforce_P(x, i, j):
 
     return x[i % x.shape[0], j % x.shape[1]]
 
-def roll_enforce_N(y, shift, axis=0):
+def roll_enforce_D(y, shift, axis=0):
     """
-    Vectorized version of bc_enforce_N
+    Vectorized version of bc_enforce_D
     shift  should be 1 or -1 
     axis should be 0 or 1"""
     y2 = np.roll(y, shift, axis=axis)
@@ -163,9 +163,9 @@ def roll_enforce_N(y, shift, axis=0):
             
     return y2
 
-def roll_enforce_D(y, shift, axis=0):
+def roll_enforce_N(y, shift, axis=0):
     """
-    Vectorized version of bc_enforce_D
+    Vectorized version of bc_enforce_N
     shift  should be 1 or -1 
     axis should be 0 or 1"""
     y2 = np.roll(y, shift, axis=axis)
