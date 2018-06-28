@@ -7,11 +7,11 @@ import sys
 import math
 
 from pradreader import reader
-import algorithm as algo
-import Bplot2 as plot
-import image
-import path
-import rad_ut as ru
+from . import algorithm as algo
+from . import Bplot2 as plot
+from . import image
+from . import path
+from . import rad_ut as ru
 
 import numpy as np
 import pandas as pd
@@ -59,13 +59,13 @@ def prad_wrap():
     files (string): flux and fluence contrast plots and other various plots if
     path integrated data is available.
     '''
-    print "STARTING ANALYSIS AND PLOTTING..."
+    print("STARTING ANALYSIS AND PLOTTING...")
     # First Parameter: Path name of the file
     # Second Parameter: The type of experimental output
     # Input variables and options
     args = get_input_data()
     fn = args.input_file
-    pr = reader.loadPRRp(fn)
+    pr = reader.loadPRR(fn)
     rtype = pr.rtype
     flux = pr.flux2D
     flux_ref = pr.flux2D_ref
@@ -80,17 +80,17 @@ def prad_wrap():
     flux_min =10.0
     # Protons per bin 2D Histogram
     image.hist2D_plot(flux, bin_um, rtype,"Flux")
-    print "Mean counts per bin: %12.5E ; Std. Dev. Counts per bin: %12.5E" % (flux.mean(), flux.std())
-    print "Max counts per bin: %d ; Min counts per bin: %d" % (flux.max(), flux.min())
-    print "Number of bins with zero protons: %d" % (flux.size - flux[ flux>0 ].size)
-    print "Number of bins with %d or fewer protons: %d\n" % (flux_min, flux.size - flux[ flux>flux_min ].size)
+    print("Mean counts per bin: %12.5E ; Std. Dev. Counts per bin: %12.5E" % (flux.mean(), flux.std()))
+    print("Max counts per bin: %d ; Min counts per bin: %d" % (flux.max(), flux.min()))
+    print("Number of bins with zero protons: %d" % (flux.size - flux[ flux>0 ].size))
+    print("Number of bins with %d or fewer protons: %d\n" % (flux_min, flux.size - flux[ flux>flux_min ].size))
 
     # Fluence Distrubtion of protons at the screen 2D Histogram
     Src, fluc = algo.steady_state(flux, flux_ref)
     image.hist2D_plot(fluc, bin_um, rtype, "Fluence")
     Flpos = fluc[flux >= flux_min]
-    print "Mean Fluct.: %12.5E ; Std. Dev. Fluct.: %12.5E" % (Flpos.mean(), Flpos.std())
-    print "Max Fluct: %12.5E ; Min Fluct: %12.5E" % (Flpos.max(), Flpos.min())
+    print("Mean Fluct.: %12.5E ; Std. Dev. Fluct.: %12.5E" % (Flpos.mean(), Flpos.std()))
+    print("Max Fluct: %12.5E ; Min Fluct: %12.5E" % (Flpos.max(), Flpos.min()))
 
 if __name__=="__main__":
     prad_wrap()

@@ -1,4 +1,4 @@
-  # Statcoul
+# Statcoul
 ESU = 4.8032E-10
 
 # mass of proton (g)

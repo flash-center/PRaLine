@@ -6,8 +6,8 @@ Provides tools to analyze the inputted data from a proton radiogtaphy experiment
 import math
 import sys
 
-import rad_ut as ru
-from constants import M_PROTON_G, ESU, C, V_PER_E
+from . import rad_ut as ru
+from .constants import M_PROTON_G, ESU, C, V_PER_E
 
 import matplotlib
 matplotlib.use('Agg') # Headless plotting (avoids python-tk GUI requirement)
@@ -33,7 +33,7 @@ def hist2D_plot(array, bin_um, type, title):
     -------
     "title".png (image):2D histogram Plot
     '''
-    print ("Constructing " + title + " Plot")
+    print("Constructing " + title + " Plot")
     font = {'family': 'serif',
         'color':  'black',
         'weight': 'normal',
@@ -79,8 +79,10 @@ def hist2D_plot(array, bin_um, type, title):
         x = "Flash"
     elif type == 'mitcsv':
         x = 'MITCSV'
+    else:
+        x = str(type)
 
-    ax.set_title(x + ": " + title,fontdict=font)
+    ax.set_title(x + r": " + title,fontdict=font)
     fig.savefig(title+".png", format='png')
 
 def err2D_plot(array, bin_um, type, title):
@@ -99,7 +101,7 @@ def err2D_plot(array, bin_um, type, title):
     -------
     "title".png (image):2D histogram Plot
     '''
-    print ("Constructing Counts/Bin Plot")
+    print("Constructing Counts/Bin Plot")
     font = {'family': 'serif',
         'color':  'black',
         'weight': 'normal',
@@ -133,5 +135,8 @@ def err2D_plot(array, bin_um, type, title):
         x = "Flash"
     elif type == 'mitcsv':
         x = 'MITCSV'
+    else:
+        x = str(type)
+
     ax.set_title(x + ": " + title + " Noise",fontdict=font)
     fig.savefig(title+" Noise.png", format='png')

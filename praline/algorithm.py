@@ -8,8 +8,8 @@ from a Proton Radiography experiment.
 import sys
 import math
 
-import rad_ut as ru
-from constants import M_PROTON_G, ESU, C, V_PER_E
+from . import rad_ut as ru
+from .constants import M_PROTON_G, ESU, C, V_PER_E
 
 from re import match
 import numpy as np
@@ -94,7 +94,7 @@ def B_recon(flux, flux_ref, s2r_cm, s2d_cm, bin_um, Ep_MeV, tol_iter, max_iter):
     # Uniform B Field Strength
     Bconst = b_field(s2r_cm, s2d_cm, Ep_MeV)
     # Iterate to solution
-    print ("Gauss-Seidel Iteration...")
+    print("Gauss-Seidel Iteration...")
     GS = ru.Gauss_Seidel(phi, np.exp(Lam), ru.D, ru.O, Src,
                          talk=20, tol=tol_iter, maxiter=max_iter)
     # Multiplying by the area of the bin
@@ -111,5 +111,5 @@ def B_recon(flux, flux_ref, s2r_cm, s2d_cm, bin_um, Ep_MeV, tol_iter, max_iter):
             BperpR[i, j, 0] = Bconst * deltaXR[i, j, 1]
             BperpR[i, j, 1] = -Bconst * deltaXR[i, j, 0]
 
-    print ("#L2 norm of residual = %12.5E ;  Number of Gauss-Seidel iterations = %d\n" % GS)
+    print("#L2 norm of residual = %12.5E ;  Number of Gauss-Seidel iterations = %d\n" % GS)
     return BperpR

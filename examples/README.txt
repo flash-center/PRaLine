@@ -6,7 +6,7 @@ This directory contains example intermediate files (test_input.p, test_input.txt
 More information on using and interpreting these examples can be found in the main documentation for PRaLine, located in the directory above at '[PRaLine]/README.md'.
 
 As described in the main documentation, analysis of the file can be performed via the command line:
-   lin-analyze test_input.p
-   lin-reconstruct test_input.p
+   lin-analyze test_input.txt
+   lin-reconstruct test_input.txt
 
 The plots generated (after 4000 iterations) after calling these functions should match those in the '[PRaLine]/examples/reference_images' directory.

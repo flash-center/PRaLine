@@ -6,11 +6,11 @@ Acts as a wrapper that runs the recons in this project
 import sys
 import os.path
 import pradreader
-import Bplot2 as plot
-import rad_ut as ru
-import algorithm as algo
-import path
-import image
+from . import Bplot2 as plot
+from . import rad_ut as ru
+from . import algorithm as algo
+from . import path
+from . import image
 
 import numpy as np
 import argparse as ap
@@ -57,8 +57,8 @@ def L2(bin_um, s2r_cm, s2d_cm, BperpR, BperpS):
     L2B = ru.fnorm(BperpR - BperpS) / ru.fnorm(BperpS)
 
     buf = "EB = %12.5E ; EB_Reconstructed = %12.5E" % (EB, EBR)
-    print ("...done.  " + buf)
-    print ("Relative L2 norm of (reconstructed B - actual B) = %12.5E" % L2B)
+    print("...done.  " + buf)
+    print("Relative L2 norm of (reconstructed B - actual B) = %12.5E" % L2B)
 
 
 def prad_wrap():
@@ -87,11 +87,11 @@ def prad_wrap():
 
 
     #############################
-    print ("STARTING RECONSTRUCTION AND PLOTTING...")
+    print("STARTING RECONSTRUCTION AND PLOTTING...")
     # Object for handling all the attributes of a proton radiography construction
     # problem. Typically, different proton radiograph formats are read into this
     # object for use with other reconstruction tools.
-    prad = pradreader.reader.loadPRR(fn)
+    pr = pradreader.reader.loadPRR(fn)
     rtype = pr.rtype
     flux = pr.flux2D
     flux_ref = pr.flux2D_ref
@@ -103,7 +103,7 @@ def prad_wrap():
     flux_ref = flux_ref.T
 
     # Magnetic Field Algorithm
-    print ("Calculating Magnetic Perpendicular Field...")
+    print("Calculating Magnetic Perpendicular Field...")
 
     BperpR = algo.B_recon(
         flux, flux_ref, s2d_cm, s2r_cm, bin_um, Ep_MeV, tol_iter, max_iter)

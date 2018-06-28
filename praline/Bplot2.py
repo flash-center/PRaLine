@@ -9,8 +9,8 @@ import math
 import sys
 import os.path
 
-import rad_ut as ru
-from constants import M_PROTON_G, ESU, C, V_PER_E
+from . import rad_ut as ru
+from .constants import M_PROTON_G, ESU, C, V_PER_E
 
 import matplotlib as mpl
 mpl.use('Agg') # Headless plotting (avoids python-tk GUI requirement)
@@ -58,7 +58,7 @@ def B_plot(B, flux_ref, bin_um, type, title):
     -------
     B_recon.png (image):  B perpendicular Projection Plot
     '''
-    print (r"Constructing Log " + title + " Projection Plot")
+    print(r"Constructing Log " + title + " Projection Plot")
     font = {'family': 'serif',
             'color':  'black',
             'weight': 'normal',
@@ -97,6 +97,8 @@ def B_plot(B, flux_ref, bin_um, type, title):
         x = "Flash"
     elif type == 'mitcsv':
         x = 'MITCSV'
+    else:
+        x = str(type)
 
     ax.set(title=x + ": Log " + title + r" $B_\perp$ Projection (G cm)",
            ylabel=r"Y (cm)", xlabel=r"X (cm)")

@@ -6,8 +6,8 @@ import sys
 import math
 from re import match
 
-import rad_ut as ru
-from constants import M_PROTON_G, ESU, C, V_PER_E
+from . import rad_ut as ru
+from .constants import M_PROTON_G, ESU, C, V_PER_E
 
 import pandas as pd
 import numpy as np
@@ -90,7 +90,7 @@ def mag_parse(fname, bin_um):
                 Bperp[i, j, :] /= flux[i, j]
                 J[i, j] /= flux[i, j]
             except ZeroDivisionError:
-                print ("Zero pixel, will screw everything up.")
+                print("Zero pixel, will screw everything up.")
                 raise ValueError
 
     return Bperp, J, avg_fluence, im_fluence
